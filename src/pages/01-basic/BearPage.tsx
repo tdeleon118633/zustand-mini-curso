@@ -83,11 +83,16 @@ export const BearsDisplay = () => {
   const bears = userBearsStore(state => state.bears);
   //const bears = userBearsStore(useShallow(state => state.bears)); // NO VUELVE A RENDERIZAR
   const donNothing = userBearsStore(state => state.donNothing);
+  const addBear = userBearsStore(state => state.addBear);
+  const cleanBear = userBearsStore(state => state.clearBears);
 
   return(
     <WhiteCard centered>
       <h2>Todos los Osos</h2>
       <button onClick={donNothing}>No Hacer Nada</button>
+      <button className='mt-2' onClick={addBear}>Agregar Oso</button>
+      <button className='mt-2' onClick={cleanBear}>Limpiar Osos</button>
+      
       <ul>
         {bears.map(bear => (
           <li key={bear.id}>{bear.name}</li>
